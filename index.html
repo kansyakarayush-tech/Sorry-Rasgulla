@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Rasgulla ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Playfair+Display:wght@400;600;700&family=Sacramento&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background: linear-gradient(135deg, #fff0f5 0%, #ffe4f1 25%, #ffd9eb 75%, #ffcce0 100%);
+            color: #5a4a5a;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Animated gradient background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(255,182,193,0.2) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(255,105,180,0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 20%, rgba(255,218,235,0.2) 0%, transparent 50%);
+            animation: gradientMove 15s ease infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes gradientMove {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 0.8; }
+        }
+
+        /* Floating hearts and petals */
+        .hearts-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 24px;
+            opacity: 0.2;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg) scale(0.8);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.3;
+            }
+            90% {
+                opacity: 0.2;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg) scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        /* Content sections */
+        section {
+            position: relative;
+            z-index: 2;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(255,182,193,0.2) 0%, rgba(255,218,235,0.15) 100%);
+            position: relative;
+        }
+
+        .hero::before {
+            content: '💕';
+            position: absolute;
+            top: 15%;
+            left: 15%;
+            font-size: 3rem;
+            opacity: 0.1;
+            animation: float 10s infinite ease-in-out;
+        }
+
+        .hero::after {
+            content: '🌹';
+            position: absolute;
+            bottom: 20%;
+            right: 15%;
+            font-size: 3rem;
+            opacity: 0.1;
+            animation: float 12s infinite ease-in-out reverse;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(3.5rem, 12vw, 8rem);
+            color: #d4628f;
+            margin-bottom: 15px;
+            animation: fadeInDown 2s ease;
+            text-shadow: 2px 2px 20px rgba(212,98,143,0.3);
+        }
+
+        .hero .subtitle {
+            font-family: 'Sacramento', cursive;
+            font-size: clamp(2rem, 6vw, 4rem);
+            color: #c2185b;
+            margin-bottom: 25px;
+            animation: fadeInUp 2.5s ease;
+        }
+
+        .hero p {
+            font-size: clamp(1.3rem, 3vw, 2rem);
+            color: #8b6f8b;
+            font-weight: 300;
+            font-style: italic;
+            animation: fadeIn 3s ease;
+            line-height: 1.6;
+        }
+
+        /* Apology Section */
+        .apology {
+            background: linear-gradient(135deg, rgba(255,240,245,0.5) 0%, rgba(255,228,241,0.3) 100%);
+        }
+
+        .apology-content {
+            max-width: 800px;
+            background: rgba(255,255,255,0.85);
+            padding: 60px 50px;
+            border-radius: 40px;
+            box-shadow: 0 20px 60px rgba(212,98,143,0.2);
+            animation: fadeIn 2s ease;
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255,182,193,0.3);
+        }
+
+        .apology h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            color: #c2185b;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+
+        .apology p {
+            font-size: clamp(1.2rem, 2.8vw, 1.6rem);
+            line-height: 2;
+            color: #5a4a5a;
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .apology p:last-child {
+            margin-bottom: 0;
+            font-style: italic;
+            color: #d4628f;
+            text-align: center;
+            font-size: clamp(1.3rem, 3vw, 1.7rem);
+            margin-top: 30px;
+        }
+
+        /* Love Section */
+        .love {
+            background: linear-gradient(135deg, rgba(255,218,235,0.3) 0%, rgba(255,182,193,0.25) 100%);
+        }
+
+        .love h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(4.5rem, 10vw, 7rem);
+            color: #d4628f;
+            margin-bottom: 40px;
+            animation: heartbeat 3s infinite;
+            text-shadow: 3px 3px 25px rgba(212,98,143,0.4);
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            7%, 21% { transform: scale(1.08); }
+            14%, 28% { transform: scale(1); }
+        }
+
+        .love-message {
+            max-width: 750px;
+            font-size: clamp(1.2rem, 2.8vw, 1.6rem);
+            line-height: 2.2;
+            color: #5a4a5a;
+            padding: 0 30px;
+            background: rgba(255,255,255,0.7);
+            padding: 50px 40px;
+            border-radius: 30px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,182,193,0.2);
+        }
+
+        .love-message p {
+            margin-bottom: 25px;
+        }
+
+        .love-message .highlight {
+            color: #d4628f;
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        /* Promise Section */
+        .promise {
+            background: linear-gradient(135deg, rgba(255,240,245,0.4) 0%, rgba(255,228,241,0.25) 100%);
+        }
+
+        .promise h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            color: #c2185b;
+            margin-bottom: 50px;
+            font-weight: 700;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
+            max-width: 1100px;
+            width: 100%;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.9);
+            padding: 45px 30px;
+            border-radius: 25px;
+            box-shadow: 0 10px 40px rgba(212,98,143,0.15);
+            transition: all 0.4s ease;
+            backdrop-filter: blur(8px);
+            border: 2px solid rgba(255,182,193,0.2);
+        }
+
+        .card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(212,98,143,0.3);
+            border-color: rgba(212,98,143,0.4);
+        }
+
+        .card-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            animation: pulse 3s infinite;
+        }
+
+        .card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #d4628f;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .card p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #5a4a5a;
+        }
+
+        /* Ending Section */
+        .ending {
+            background: linear-gradient(135deg, rgba(255,182,193,0.25) 0%, rgba(255,218,235,0.15) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ending::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,182,193,0.3) 0%, transparent 70%);
+            transform: translate(-50%, -50%);
+            animation: pulseGlow 4s infinite;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+            50% { transform: translate(-50%, -50%) scale(1.3); opacity: 0.8; }
+        }
+
+        .ending-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .ending h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(3.5rem, 8vw, 6rem);
+            color: #d4628f;
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease;
+        }
+
+        .ending p {
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            color: #8b6f8b;
+            margin-bottom: 35px;
+            font-style: italic;
+        }
+
+        .ending-heart {
+            font-size: 7rem;
+            animation: heartPulse 2s infinite;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            display: inline-block;
+            filter: drop-shadow(0 10px 30px rgba(212,98,143,0.4));
+        }
+
+        .ending-heart:hover {
+            transform: scale(1.3) rotate(10deg);
+        }
+
+        @keyframes heartPulse {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.15); }
+            50% { transform: scale(1); }
+        }
+
+        /* Music toggle button */
+        .music-toggle {
+            position: fixed;
+            bottom: 35px;
+            right: 35px;
+            z-index: 1000;
+            background: linear-gradient(135deg, #d4628f 0%, #c2185b 100%);
+            border: none;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            box-shadow: 0 8px 30px rgba(212,98,143,0.5);
+            transition: all 0.3s ease;
+        }
+
+        .music-toggle:hover {
+            background: linear-gradient(135deg, #c2185b 0%, #a01648 100%);
+            transform: scale(1.15);
+            box-shadow: 0 12px 40px rgba(212,98,143,0.7);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from { 
+                opacity: 0;
+                transform: translateY(-80px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0;
+                transform: translateY(80px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.9; }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .apology-content {
+                padding: 40px 30px;
+            }
+            
+            .love-message {
+                padding: 35px 25px;
+            }
+            
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .music-toggle {
+                width: 55px;
+                height: 55px;
+                font-size: 1.5rem;
+            }
+
+            .apology p {
+                text-align: center;
+            }
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2.5rem;
+            color: #d4628f;
+            animation: bounce 2s infinite;
+            filter: drop-shadow(0 5px 15px rgba(212,98,143,0.3));
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(15px); }
+        }
+
+        /* Letter style for special sections */
+        .letter-signature {
+            font-family: 'Sacramento', cursive;
+            font-size: 2.5rem;
+            color: #c2185b;
+            margin-top: 30px;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating hearts background -->
+    <div class="hearts-container" id="heartsContainer"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>My Dearest Rasgulla</h1>
+            <p class="subtitle">The Sweetest Part of My Life</p>
+            <p>You are my forever, my everything, my home.<br>This is a letter from the depths of my heart...</p>
+        </div>
+        <div class="scroll-indicator">↓</div>
+    </section>
+
+    <!-- Apology Section -->
+    <section class="apology">
+        <div class="apology-content">
+            <h2>I'm Deeply Sorry, My Love</h2>
+            <p>My dearest Rasgulla, I know I've hurt you, and there are no words that can undo the pain I caused. But I need you to know that I see it now — I see how my actions affected you, how they made you feel, and it breaks my heart.</p>
+            <p>You, my love, deserve to be cherished every single moment. You deserve a husband who makes you feel safe, valued, and loved without question. I failed you in that moment, and I carry that regret deeply.</p>
+            <p>I don't ask you to forget what happened, but I humbly ask for your forgiveness. I promise to learn from this, to grow, and to never take your beautiful heart for granted again. You are too precious to me.</p>
+            <p>"I am sorry, my Rasgulla. Please forgive your imperfect husband who loves you endlessly." 💕</p>
+            <div class="letter-signature">Forever Yours</div>
+        </div>
+    </section>
+
+    <!-- Love Section -->
+    <section class="love">
+        <h2>I Love You Beyond Words</h2>
+        <div class="love-message">
+            <p>Rasgulla, you are the love of my life, my soulmate, my wife. From the moment you came into my world, everything changed. You brought light where there was darkness, joy where there was emptiness, and meaning to every single day.</p>
+            <p>I love the way you smile, the way your eyes light up when you're happy, the warmth of your embrace. I love your kindness, your strength, the way you make me feel like I can conquer anything. <span class="highlight">You are my greatest blessing.</span></p>
+            <p>Being your husband is the greatest honor of my life. I promise to love you fiercely, to protect your heart, to be your safe place. Through every storm, every joy, every moment — I choose you, always and forever.</p>
+            <p><span class="highlight">You are my forever, Rasgulla. My heart beats only for you.</span> 💖</p>
+        </div>
+    </section>
+
+    <!-- Promise Section -->
+    <section class="promise">
+        <h2>My Promises to You</h2>
+        <div class="cards-container">
+            <div class="card">
+                <div class="card-icon">🌹</div>
+                <h3>I Promise to Love You</h3>
+                <p>Every single day, in every way. To show you through my words and actions that you are cherished, adored, and irreplaceable. You are the queen of my heart.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">💍</div>
+                <h3>I Promise to Honor You</h3>
+                <p>As my wife, my partner, my best friend. To respect your feelings, listen to your heart, and always treat you with the dignity and love you deserve.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">✨</div>
+                <h3>I Promise to Grow With You</h3>
+                <p>To be a better man, a better husband. To learn from my mistakes and become the partner you can always count on, through all of life's beautiful moments.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">💫</div>
+                <h3>I Promise to Never Stop Trying</h3>
+                <p>To make you smile, to ease your worries, to be your comfort. You deserve the world, Rasgulla, and I will spend my life trying to give it to you.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🌟</div>
+                <h3>I Promise Forever</h3>
+                <p>In this life and beyond. You are my soulmate, my destiny. I will love you until my last breath and even after — because our love is eternal.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ending Section -->
+    <section class="ending">
+        <div class="ending-content">
+            <h2>Will You Forgive Me?</h2>
+            <p>Let this be a new beginning for us, my beautiful Rasgulla...</p>
+            <div class="ending-heart" onclick="showMessage()">💖</div>
+        </div>
+    </section>
+
+    <!-- Music toggle button -->
+    <button class="music-toggle" onclick="toggleMusic()" title="Toggle music">🎵</button>
+
+    <script>
+        // Create floating hearts and petals
+        const heartsContainer = document.getElementById('heartsContainer');
+        const heartSymbols = ['💕', '💖', '💗', '💝', '🌸', '🌺', '🌹', '💐', '✨', '💫'];
+        
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.textContent = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDuration = (Math.random() * 12 + 15) + 's';
+            heart.style.animationDelay = Math.random() * 5 + 's';
+            heart.style.fontSize = (Math.random() * 10 + 20) + 'px';
+            heartsContainer.appendChild(heart);
+            
+            setTimeout(() => heart.remove(), 25000);
+        }
+
+        // Create hearts periodically
+        setInterval(createHeart, 600);
+        for(let i = 0; i < 20; i++) {
+            setTimeout(createHeart, i * 400);
+        }
+
+        // Music toggle
+        let musicPlaying = false;
+        function toggleMusic() {
+            musicPlaying = !musicPlaying;
+            const btn = document.querySelector('.music-toggle');
+            btn.textContent = musicPlaying ? '🔊' : '🎵';
+            btn.title = musicPlaying ? 'Music playing' : 'Toggle music';
+            
+            if(musicPlaying) {
+                // Create extra hearts when music plays
+                for(let i = 0; i < 15; i++) {
+                    setTimeout(createHeart, i * 100);
+                }
+            }
+        }
+
+        // Heart click interaction
+        function showMessage() {
+            const heart = document.querySelector('.ending-heart');
+            heart.style.transform = 'scale(2) rotate(360deg)';
+            
+            setTimeout(() => {
+                heart.style.transform = 'scale(1) rotate(0deg)';
+            }, 500);
+            
+            // Create explosion of hearts
+            for(let i = 0; i < 30; i++) {
+                setTimeout(createHeart, i * 80);
+            }
+            
+            // Show sweet message
+            setTimeout(() => {
+                const message = document.createElement('div');
+                message.style.cssText = `
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background: rgba(255,255,255,0.95);
+                    padding: 40px 60px;
+                    border-radius: 30px;
+                    font-family: 'Playfair Display', serif;
+                    font-size: 1.8rem;
+                    color: #d4628f;
+                    text-align: center;
+                    box-shadow: 0 20px 60px rgba(212,98,143,0.4);
+                    z-index: 9999;
+                    animation: fadeIn 0.5s ease;
+                    border: 3px solid rgba(212,98,143,0.3);
+                `;
+                message.innerHTML = '💖<br><br>I love you, my sweetest Rasgulla<br><br>Thank you for being my everything<br><br>💖';
+                document.body.appendChild(message);
+                
+                setTimeout(() => {
+                    message.style.animation = 'fadeOut 0.5s ease';
+                    setTimeout(() => message.remove(), 500);
+                }, 4000);
+            }, 500);
+        }
+
+        // Smooth scroll reveal animations
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -80px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.card, .apology-content, .love-message').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(40px)';
+            el.style.transition = 'all 1s ease';
+            observer.observe(el);
+        });
+
+        // Hide scroll indicator on scroll
+        window.addEventListener('scroll', () => {
+            const indicator = document.querySelector('.scroll-indicator');
+            if(indicator) {
+                if(window.scrollY > 100) {
+                    indicator.style.opacity = '0';
+                } else {
+                    indicator.style.opacity = '1';
+                }
+            }
+        });
+
+        // Add fadeOut keyframe
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeOut {
+                from { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+                to { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
